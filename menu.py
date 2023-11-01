@@ -31,28 +31,115 @@ class Calendar():
                 currentWeek = []
             week += 1
 
+        up = " ____  "
+        blank = "       "
+        down = " ----  "
+        dayToday = datetime.date.today().day
+        today = "****** "
         print("  pon     wt      sr     czw      pt      so     nie")
         for week in currentMonth:
-            print(" ____    ____    ____    ____    ____    ____    ____")
             for day in week:
-                if day > 9:
-                    print("|", day, "| ", end=" ")
+                if day == dayToday:
+                    print(today, end=" ")
                 else:
-                    print("| ", day, "|  ", end="")
+                    print(up, end=" ")
             print()
-            print(" ----    ----    ----    ----    ----    ----    ----")
+            for day in week:
+                if day == dayToday:
+                    if day > 9:
+                        print("#", day, "# ", end=" ")
+                    else:
+                        print("# ", day, "# ", end="")
+                else:
+                    if day > 9:
+                        print("|", day, "| ", end=" ")
+                    else:
+                        print("| ", day, "|  ", end="")
+            print()
+            for day in week:
+                if day == dayToday:
+                    print(today, end=" ")
+                else:
+                    print(down, end=" ")
+            print()
 
     def showCalendar2(self):
         #2 opcja wyswietlania kalendarza, tylko dni z tego miesiaca
-        pass
+        print("                  ", self.getMonth(), self.getYear())
+        print('=====================================================')
+
+        kalendarz = cal.Calendar()
+        week = 1
+        currentMonth = []
+        currentWeek = []
+        for iterweekday in kalendarz.itermonthdays(2023, 10):
+            if iterweekday==0:
+                currentWeek.append(" ")
+            else:
+                currentWeek.append(str(iterweekday))
+            if week == 7:
+                week = 0
+                currentMonth.append(currentWeek)
+                currentWeek = []
+            week += 1
+
+        index=1
+        monthLen=len(currentMonth)
+        up = " ____  "
+        blank = "       "
+        down = " ----  "
+        today = " **** "
+        print("  pon     wt      sr     czw      pt      so     nie")
+        for week in currentMonth:
+            if index==1 or index==monthLen:
+                for day in week:
+                    if day==" ":
+                        print(blank, end=" ")
+                    else:
+                        print(up, end=" ")
+                print()
+                for day in week:
+                    if day==" ":
+                        print("       ", end=" ")
+                    elif len(day)==1:
+                        print("| ", day, "| ", end=" ")
+                    else:
+                        print("|", day, "| ", end=" ")
+                print()
+                for day in week:
+                    if day == " ":
+                        print(blank, end=" ")
+                    else:
+                        print(down, end=" ")
+                print()
+
+            else:
+                for day in week:
+                    print(up, end=" ")
+                print()
+                for day in week:
+                    if len(day) > 1:
+                        print("|", day, "| ", end=" ")
+                    else:
+                        print("| ", day, "|  ", end="")
+                print()
+                for day in week:
+                    print(down, end=" ")
+                print()
+
+            index+=1
 
 
 class Events():
     # wydarzenia zapisywane do pliku
-    events = []
+    # format - {data: wydarzenie}
 
-    def loadEvents(self, name):
-        file = open(name)
+    # moge dodac konstruktor polimorficzny? - ze rozna ilosc argumentow
+    events = []
+    defaultFile = "events.txt"
+
+    def loadEvents(self, defaultFile):
+        file = open(defaultFile, "r")
         for event in file:
             self.events.append(event)
         file.close()
@@ -60,8 +147,18 @@ class Events():
     def showEvents(self):
         print(self.events)
 
-    def addEvent(self):
-        self.events.append()
+    def saveEvent(self, name):
+        file = open(name, "w")
+        for event in self.events:
+            file.write(str(event))
+        file.close()
+
+    def addEvent(self, date, description):
+        self.events.append({date: description})
+        self.saveEvent("events.txt")
+
+    def removeEevnt(self, date):
+        pass
 
 class Notes():
     #luzne notatki, tez zapisywane do pliku
@@ -82,5 +179,6 @@ class Menu():
             calendar.showCalendar1()
         case 2:
             events = Events()
+            events.addEvent("01.11.2023","urodziny dziadka")
 
 menu = Menu()
