@@ -1,0 +1,97 @@
+    def showCalendar2(self, chosenDay):
+        #2 opcja wyswietlania kalendarza, tylko dni z tego miesiaca
+        print("                  ", self.getMonth(), self.getYear())
+        print('=====================================================')
+
+        kalendarz = cal.Calendar()
+        week = 1
+        currentMonth = []
+        currentWeek = []
+        for iterweekday in kalendarz.itermonthdays(2023, 11):
+            if iterweekday==0:
+                currentWeek.append(" ")
+            else:
+                currentWeek.append(str(iterweekday))
+            if week == 7:
+                week = 0
+                currentMonth.append(currentWeek)
+                currentWeek = []
+            week += 1
+
+        index=1
+        monthLen=len(currentMonth)
+        up = " ____  "
+        blank = "       "
+        down = " ----  "
+        today = "****** "
+        # dayToday = str(datetime.date.today().day)
+        dayToday = str(chosenDay)
+        print()
+        print("  pon     wt      sr     czw      pt      so     nie")
+        for week in currentMonth:
+            # pierwszy i ostatni miesiac
+            if index==1 or index==monthLen:
+                # gora
+                for day in week:
+                    if day==" ":
+                        print(blank, end=" ")
+                    elif day== dayToday:
+                        print(today, end=" ")
+                    else:
+                        print(up, end=" ")
+                print()
+                # srodek
+                for day in week:
+                    if day==" ":
+                        print("       ", end=" ")
+                    elif len(day)==1:
+                        if day == dayToday:
+                            print("# ", day, "# ", end=" ")
+                        else:
+                            print("| ", day, "| ", end=" ")
+                    else:
+                        if day== dayToday:
+                            print("#", day, "# ", end=" ")
+                        else:
+                            print("|", day, "| ", end=" ")
+                print()
+                # dol
+                for day in week:
+                    if day == " ":
+                        print(blank, end=" ")
+                    elif day== dayToday:
+                        print(today, end=" ")
+                    else:
+                        print(down, end=" ")
+                print()
+
+            # pozostale miesiace
+            else:
+                # gora
+                for day in week:
+                    if day== dayToday:
+                        print(today, end=" ")
+                    else:
+                        print(up, end=" ")
+                print()
+                # srodek
+                for day in week:
+                    if day== dayToday:
+                        if len(day) > 1:
+                            print("#", day, "# ", end=" ")
+                        else:
+                            print("# ", day, "#  ", end="")
+                    if len(day) > 1:
+                        print("|", day, "| ", end=" ")
+                    else:
+                        print("| ", day, "|  ", end="")
+                print()
+                # dol
+                for day in week:
+                    if day== dayToday:
+                        print(today, end=" ")
+                    else:
+                        print(down, end=" ")
+                print()
+
+            index+=1

@@ -212,9 +212,6 @@ class Helper():
         self.stdscr.addstr(self.y+11, self.x, "przechodzi po miesiącach")
 
 def main(stdscr):
-    # stdscr = curses.initscr()
-    curses.cbreak()
-    stdscr.keypad(True)
     curses.curs_set(0)
     stdscr.clear()
 
@@ -236,13 +233,12 @@ def main(stdscr):
             key = 0
             while key != 27:  # ESC wychodzi
                 key = stdscr.getch()
-                if key == 17:
-                    return
-                    # stdscr.clear()
-                    # stdscr.addstr(5, 5, "ctrl wcisniety")
-                    # stdscr.refresh()
-                    # ctrl = True
-                    # break
+                if key == curses.BUTTON_CTRL:
+                    stdscr.clear()
+                    stdscr.addstr(5, 5, "ctrl wcisniety")
+                    stdscr.refresh()
+                    ctrl = True
+                    break
                 if key == curses.KEY_RIGHT:
                     # kolejny dzien
                     stdscr.refresh()

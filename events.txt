@@ -1,1 +1,19 @@
-{'01.11.2023': 'urodziny dziadka'}
+2023-11-01:wydarzenie1
+2023-11-02:juz jest
+2023-11-05:wydarzenie jakies
+2023-11-22:silownia
+2023-11-26:26 wydarzenie 26.
+2023-11-03:costam moze urodziny
+2023-11-04:czwartego dnia stalo sie slonce
+2023-11-20:silownia
+2023-11-21:silownia
+2023-11-23:odpoczynek
+2023-11-06:test
+2023-11-07:test2
+2023-11-30:30 listopad wydarzenie
+2023-12-02:2 listopad wydarzenie
+2024-01-02:wydarzenie juz w nowy rok
+2023-11-14:wydarzenie 14 listopada
+2023-10-30:i to jest elegancja francja
+2023-10-28:wydarzenie mieisac przed
+2023-10-27:jednak nic tu nie powinno byc
