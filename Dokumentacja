@@ -1,0 +1,40 @@
+Głównym celem aplikacji jest organizacja czasu oraz podgląd statusu zadań poprzez udostępnienie kalendarza oraz listy rzeczy do zrobienia. W ten sposób użytkownik może zaplanować swój najbliższy czas oraz ustawić cele na później. 
+
+Na zestaw funkcjonalności składają się następujące moduły:
+Menu:
+ekran startowy aplikacji z możliwością wyboru dostępnych modułów w trybie tekstowym lub graficznym
+
+moduł kalendarz:
+wyświetlanie aktualnego dnia, miesiąca oraz roku
+przewijanie po dniach oraz miesiącach
+dodawanie wydarzeń
+usuwanie wydarzeń
+
+moduł lista zadań:
+przeglądanie aktualnych zadań
+zmiana stanu ukończenia zadania
+dodawanie zadań
+usuwanie zadań
+
+szczególnie interesujące zagadnienia projektowe:
+curses - ???
+generowanie widoku kalendarza - rysowane dzień po dniu, linijka po linijce
+obsługa kombinacji klawiszy
+
+instrukcja instalacji:
+do działania wymagany jest Python w wersji 3.10
+terminal linuxowy z Ubuntu 22.04
+
+instrukcja konfiguracji:
+w terminalu należy wpisać polecenie >python3 organizer.py
+
+instrukcja użytkownika znajduje się już zaimplementowana w aplikacji
+????
+
+wnioski:
+jest to prosty w użyciu organizer, szybki w działaniu, nie zajmujący dużej ilości pamięci
+dobrze sprawdziłby się jako program uruchamiający się zaraz po starcie - użytkownik miałby wtedy czas na przegląd aktualnych lub zbliżających się wydarzeń, mógłby również korzystać z modułu listy zadań do wizualizacji rzeczy do zrobienia oraz progesu
+program ma możliwość rozbudowania o kilka dodatkowych funkcjonalności
+
+samoocena:
+???

@@ -9,7 +9,12 @@ jedno, powtarzalne wydarzenie np urodziny co roku są
 
 Calendar:
 przeniesc widok z menu.py
-ctrl + strzalka daje kolejny miesiac
+
+Todo:
+pole gdzie dodaje wydarzenia i enterem zaznaczam [x] pole na wykonane albo [ ] niewykonane
+!!!!mozna usuwac te wydarzenia deletem a plusem nowe
+odswiezanie
+
 
 Notepad:
 stworzyć

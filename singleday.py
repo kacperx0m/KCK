@@ -225,7 +225,7 @@ def main(stdscr):
     menu = Menu(stdscr)
     menu.showMenu()
     key = 0
-    ctrl = False
+    ctrl = 0
     while key != 27:
         key = stdscr.getch()
         if key == 49:
@@ -236,23 +236,21 @@ def main(stdscr):
             key = 0
             while key != 27:  # ESC wychodzi
                 key = stdscr.getch()
-                if key == 17:
-                    return
-                    # stdscr.clear()
-                    # stdscr.addstr(5, 5, "ctrl wcisniety")
-                    # stdscr.refresh()
-                    # ctrl = True
-                    # break
+                if key == 546: #lewo
+                    dateToday -= datetime.timedelta(days=daysMonths[dateToday.month])
+                    calendar.showCalendar(dateToday)
+                    event.showEvents(calendar.getX(), calendar.getY(), dateToday)
+                    helper.show()
+                elif key == 561: #prawo
+                    dateToday += datetime.timedelta(days=daysMonths[dateToday.month])
+                    calendar.showCalendar(dateToday)
+                    event.showEvents(calendar.getX(), calendar.getY(), dateToday)
+                    helper.show()
                 if key == curses.KEY_RIGHT:
                     # kolejny dzien
                     stdscr.refresh()
                     today += 1
-                    if ctrl and key == curses.KEY_RIGHT:
-                        dateToday += datetime.timedelta(days=daysMonths[dateToday.month])
-                        stdscr.addstr(5,5,"ctrl wcisniety")
-                        stdscr.refresh()
-                    else:
-                        dateToday += datetime.timedelta(days=1)
+                    dateToday += datetime.timedelta(days=1)
                     calendar.showCalendar(dateToday)
                     event.showEvents(calendar.getX(), calendar.getY(), dateToday)
                     helper.show()
@@ -260,10 +258,7 @@ def main(stdscr):
                     # poprzedni dzien
                     stdscr.refresh()
                     today -= 1
-                    if ctrl:
-                        dateToday -= datetime.timedelta(days=daysMonths[dateToday.month])
-                    else:
-                        dateToday -= datetime.timedelta(days=1)
+                    dateToday -= datetime.timedelta(days=1)
                     calendar.showCalendar(dateToday)
                     event.showEvents(calendar.getX(), calendar.getY(), dateToday)
                     helper.show()
@@ -275,7 +270,8 @@ def main(stdscr):
                     stdscr.refresh()
                     calendar.showCalendar(dateToday)
                     event.showEvents(calendar.getX(), calendar.getY(), dateToday)
-                ctrl = False
+                    helper.show()
+                ctrl = 0
             key = 0
             stdscr.clear()
             menu.showMenu()
