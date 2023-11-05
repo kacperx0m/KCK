@@ -1,4 +1,6 @@
 import curses
+import sys
+
 
 class Task():
     def __init__(self, stdscr):
@@ -70,7 +72,18 @@ class TodoHelper():
         self.stdscr = stdscr
 
     def showTodoHelper(self):
-        self.stdscr.addstr(2, 54)
+        self.stdscr.addstr(5, 50, "JAK KORZYSTAĆ:")
+
+        self.stdscr.addstr(7, 50, "[STRZAŁKI GÓRA, DÓŁ]")
+        self.stdscr.addstr(8, 50, "do przechodzenia po zadaniach")
+
+        self.stdscr.addstr(10, 50, "[+] dodaje nowe zadanie")
+        self.stdscr.addstr(11, 50, "na koncu listy")
+
+        self.stdscr.addstr(13, 50, "[DEL] usuwa zaznaczone zadanie")
+
+        self.stdscr.addstr(15, 50, "[SPACE] zazanacza zadanie")
+        self.stdscr.addstr(16, 50, "jako zrealizowane")
 
 def todo(stdscr):
     key = 0
@@ -79,6 +92,7 @@ def todo(stdscr):
     tasks = Task(stdscr)
     tasks.loadTasks()
     tasks.scroll_pos = max(0, tasks.current_task_index - curses.LINES + 3)
+    todohelper = TodoHelper(stdscr)
     while key != 27:
         stdscr.clear()
 
@@ -88,6 +102,7 @@ def todo(stdscr):
 
         tasks.showTasks()
         stdscr.refresh()
+        todohelper.showTodoHelper()
         key = stdscr.getch()
 
         if key == curses.KEY_DOWN:
@@ -124,6 +139,7 @@ def todo(stdscr):
                     editable += chr(key)
                     stdscr.clear()
             tasks.showTasks()
+            todohelper.showTodoHelper()
 
         elif key == ord(' '):
             tasks.toggleCompletion()
@@ -131,4 +147,9 @@ def todo(stdscr):
         elif key == 330:
             tasks.delTask()
 
-curses.wrapper(todo)
+    curses.endwin()
+    return
+
+def todoMain():
+    if curses.wrapper(todo):
+        return

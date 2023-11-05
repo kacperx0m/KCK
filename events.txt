@@ -18,3 +18,4 @@
 2023-10-28:wydarzenie mieisac przed
 2023-10-27:jednak nic tu nie powinno byc
 2025-03-07:wydarzenie kalendarzowe
+2023-11-28:wydarzenie testowe

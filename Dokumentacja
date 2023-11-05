@@ -26,10 +26,11 @@ do działania wymagany jest Python w wersji 3.10
 terminal linuxowy z Ubuntu 22.04
 
 instrukcja konfiguracji:
+pliki organizer.py, todo_nowe.py oraz start.txt umieścić w tym samym folderze
 w terminalu należy wpisać polecenie >python3 organizer.py
 
 instrukcja użytkownika znajduje się już zaimplementowana w aplikacji
-????
+w przypadku edytowania, działają takie zasady jak normalnie
 
 wnioski:
 jest to prosty w użyciu organizer, szybki w działaniu, nie zajmujący dużej ilości pamięci

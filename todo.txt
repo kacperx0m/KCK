@@ -9,11 +9,10 @@ jedno, powtarzalne wydarzenie np urodziny co roku są
 
 Calendar:
 przeniesc widok z menu.py
+dzisiejszy dzien zeby pokazywalo
 
 Todo:
-pole gdzie dodaje wydarzenia i enterem zaznaczam [x] pole na wykonane albo [ ] niewykonane
-!!!!mozna usuwac te wydarzenia deletem a plusem nowe
-odswiezanie
+pasek stanu - w sensie progess bar
 
 
 Notepad:
@@ -21,5 +20,5 @@ stworzyć
 niech ma podpowiedzi - jeśli jedna literka się nie zgadza - to jest nie tworzy żadnego słowa z bazy to wtedy niech poprawi na jakieś
 
 Menu:
-wybor 3.moduł do zrozbienia 4.wydarzenia
+polaczyc moduly todo_nowe i singleday
 

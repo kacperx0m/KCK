@@ -1,6 +1,6 @@
-[ ] sprzatnac pokoj
+[x] sprzatnac pokoj
 [x] wyprowadzic psa
-[ ] zjesc
+[x] zjesc
 [ ] pojsc na silownie
 [x] zrobic projekt
 [ ] wypic wode
